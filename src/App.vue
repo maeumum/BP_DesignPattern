@@ -1,37 +1,48 @@
 <script setup lang="ts">
+// --- 기본 예제 5가지 (제공된 코드) ---
 import SingletonDemo from './components/SingletonDemo.vue';
 import AdapterDemo from './components/AdapterDemo.vue';
 import DecoratorDemo from './components/DecoratorDemo.vue';
 import ObserverDemo from './components/ObserverDemo.vue';
 import VisitorDemo from './components/VisitorDemo.vue';
+
+// --- 기본 예제 1가지 (Factory Method, 추가 구현) ---
+import FactoryMethodDemo from './components/FactoryMethodDemo.vue';
+
+// --- 직접 구현 과제 3가지 ---
+// 생성 패턴 (Builder)
+import BuilderDemo from './components/BuilderDemo.vue';
+// 구조 패턴 (Facade)
+import FacadeDemo from './components/FacadeDemo.vue';
+// 행위 패턴 (Strategy)
+import StrategyDemo from './components/StrategyDemo.vue';
 </script>
 
 <template>
   <div class="app">
     <header class="header">
-      <h1>🎯 디자인 패턴 6개 실행 데모</h1>
-      <p>제공된 TypeScript 코드를 실행하고 결과를 확인하세요</p>
+      <h1>🎯 디자인 패턴 구현 및 실행 데모</h1>
+      <p>제공된 6가지 기본 예제와 직접 구현한 3가지 패턴을 확인하세요</p>
     </header>
 
     <main class="main">
-      <div class="grid">
+      <h2>✅ 기본 예제 (6개 실행/캡처 대상)</h2>
+      <p class="section-description">영상 강의에 포함된 패턴들. 실행 결과를 캡처하여 제출하세요.</p>
+      <div class="grid default-grid">
         <SingletonDemo />
         <AdapterDemo />
         <DecoratorDemo />
         <ObserverDemo />
         <VisitorDemo />
+        <FactoryMethodDemo /> <!-- 6번 패턴 -->
+      </div>
 
-        <!-- Factory Method 자리 -->
-        <div class="pattern-card placeholder">
-          <h3>6️⃣ Factory Method Pattern</h3>
-          <p class="description">
-            제공된 코드에 Factory Method 예시를 추가하여<br>
-            총 6개 패턴을 완성하세요
-          </p>
-          <div class="hint">
-            💡 강의 자료의 Factory Method 코드를 참고하세요
-          </div>
-        </div>
+      <h2 style="margin-top: 3rem;">⭐ 직접 구현 과제 (생성/구조/행위 각 1개)</h2>
+      <p class="section-description">요구사항에 맞춰 제외 패턴을 피해 직접 구현한 3가지 패턴입니다.</p>
+      <div class="grid custom-grid">
+        <BuilderDemo />
+        <FacadeDemo />
+        <StrategyDemo />
       </div>
 
       <div class="guide">
@@ -39,25 +50,26 @@ import VisitorDemo from './components/VisitorDemo.vue';
         <div class="guide-content">
           <div class="guide-item">
             <span class="step">1단계</span>
-            <p>위의 각 패턴을 실행하고 결과를 확인하세요</p>
+            <p>위의 **총 9개** 패턴을 모두 실행하고 결과를 확인하세요.</p>
           </div>
           <div class="guide-item">
             <span class="step">2단계</span>
-            <p>각 패턴의 실행 결과 화면을 캡처하세요 (6장)</p>
+            <p>각 패턴의 실행 결과 화면을 **총 9장** 캡처하여 제출하세요.</p>
           </div>
           <div class="guide-item">
             <span class="step">3단계</span>
-            <p>브라우저 개발자 도구(F12) 콘솔도 함께 캡처</p>
+            <p>브라우저 개발자 도구(F12) **콘솔도 함께 캡처**하여 패턴의 동작을 명확히 보여주세요.</p>
           </div>
           <div class="guide-item">
             <span class="step">4단계</span>
-            <p>생성/구조/행위 패턴에서 각 1개씩 직접 구현</p>
+            <p>제출은 **GitHub 저장소 주소**로 제출합니다.</p>
           </div>
         </div>
 
         <div class="warning">
           <strong>⚠️ 제외해야 할 패턴:</strong>
           <p>Singleton, Factory Method, Adapter, Decorator, Observer, Visitor</p>
+          <p>⭐ **직접 구현 패턴:** Builder (생성), Facade (구조), Strategy (행위)</p>
         </div>
       </div>
     </main>
@@ -104,36 +116,35 @@ body {
   margin: 0 auto;
 }
 
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.section-description {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.placeholder {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
-  border: 2px dashed #f59e0b;
+.default-grid {
+  /* 기본 6개 패턴 (작은 카드) */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-.placeholder h3 {
-  color: #92400e;
+.custom-grid {
+  /* 직접 구현 3개 패턴 (조금 더 넓은 카드) */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
-.placeholder .description {
-  color: #78350f !important;
-  line-height: 1.6;
-}
-
-.hint {
-  background: #fffbeb;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #fcd34d;
-  color: #92400e;
-  font-size: 0.875rem;
-  margin-top: 1rem;
-}
 
 .guide {
   background: white;
@@ -146,6 +157,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #1f2937;
+  text-shadow: none;
 }
 
 .guide-content {
