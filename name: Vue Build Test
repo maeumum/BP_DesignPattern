@@ -43,3 +43,4 @@ jobs:
       # 6️⃣ 빌드
       - name: Build project
         run: npm run build
+
